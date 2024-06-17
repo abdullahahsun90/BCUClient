@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BCU Control</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="control.css">
+    </head>
+    <body>
+      <div class="container-fluid mt-3">
+          <h4 style="color: #c0ced5; width: fit-content">Configuration Parameters</h4>
+          <div class="form-container">
+              <form id="parameterForm">
+                  <div id="formFields">
+                      <!-- Form fields will be dynamically generated here -->
+                  </div>
+                  <div class="button-container">
+                      <button type="button" class="btn btn-primary" onclick="getConfigurationParameters()">Get Parameters</button>
+                      <button type="submit" class="btn btn-primary">Set Parameters</button>
+                  </div>
+              </form>
+          </div>
+      </div>    
+      <div class="container-fluid mt-3">
+          <h4 style="color: #c0ced5;">Modbus TCP</h4>
+          <div class="form-border" style="background-color: #04c3c1;">
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-border">
+                      <h4>Request</h4>
+                      <div class="form-group">
+                        <label for="transactionId">Transaction Identifier (Dec)</label>
+                        <input type="text" class="form-control" id="transactionId" value="0" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="protocolId">Protocol Identifier</label>
+                        <input type="text" class="form-control" id="protocolId" value="0" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="length">Length (Dec)</label>
+                        <input type="number" class="form-control" id="length" min="9" max="18" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="unitId">Unit Identifier (Hex)</label>
+                        <input type="text" class="form-control" id="unitIdentifier" maxlength="2" pattern="[0-9A-Fa-f]{1,2}">
+                      </div>
+                      <div class="form-group">
+                        <label for="functionCode">Function Code (Hex)</label>
+                        <input type="text" class="form-control" id="functionCode" maxlength="2" pattern="[0-9A-Fa-f]{1,2}">
+                      </div>
+                      <div class="form-group">
+                        <label for="data">Data (Hex)</label>
+                        <input type="text" class="form-control" id="data">
+                      </div>                
+                    </div>
+                    <div class="button-container">
+                      <button id="sendButton" type="button" class="btn btn-primary mb-3">Send Request</button>
+                    </div>
+                  </div>
+            
+                  <div class="col-md-6">
+                    <div class="form-border">
+                      <h4>Response</h4>
+                      <div class="form-group">
+                        <label for="responseTransactionId">Transaction Identifier (Dec)</label>
+                        <input type="text" class="form-control" id="responseTransactionId" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="responseProtocolId">Protocol Identifier</label>
+                        <input type="text" class="form-control" id="responseProtocolId" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="responseLength">Length (Dec)</label>
+                        <input type="number" class="form-control" id="responseLength" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="responseUnitId">Unit Identifier (Hex)</label>
+                        <input type="text" class="form-control" id="responseUnitId" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="responseFunctionCode">Function Code (Hex)</label>
+                        <input type="text" class="form-control" id="responseFunctionCode" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="responseData">Data (Hex)</label>
+                        <input type="text" class="form-control" id="responseData" readonly>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>          
+      </div>
+
+        <!-- Custom JavaScript -->
+        <script src="globals.js"></script>
+        <script src="control.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

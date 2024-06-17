@@ -1,0 +1,210 @@
+/* Dark Theme */
+
+/* Background and Text Colors */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #282828;
+    color: #282828; /* Light text color */
+}
+
+/* Left Tabs Styles */
+#leftTabs .nav-item {
+    border-radius: 10px;
+    margin-bottom: 2px;
+    margin-left: 3px;
+    background-color: #04c3c1; /* Darker background color for tabs */
+}
+
+#leftTabs .nav-link {
+    color: #282828; /* Light text color */
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-bottom: 2px;
+    margin-left: 3px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#leftTabs .nav-link.active {
+    padding: 10px 20px;
+    margin: 3px;
+    border-radius: 10px;
+    background: #282828;
+    color: #04c3c1;
+}
+
+#leftTabs .nav-link:hover {
+    background: #282828;
+    color: #c0ced5;
+}
+
+/* Tab Pane Styles */
+#leftTabs .tab-pane {
+    padding: 20px;
+}
+
+/* Gauges Styles */
+.gaugeContainerStyle {
+    width: 100px;
+    height: 80px;
+}
+
+.gauges-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+.led {
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+.led-on {
+    background-color: #fd1d1d; /* Adjust color for LED on state */
+}
+
+.led-off {
+    background-color: #282828; /* Adjust color for LED off state */
+}
+
+/* Status Sections Styles */
+.status-sections {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.status-section {
+    flex: 1 1 300px;
+    margin-right: 20px;
+    margin-top: 20px;
+    background: #04c3c1;
+    border-radius: 10px;
+    padding: 7px;
+}
+
+.card {
+    flex: 1 1 300px;
+    margin: 20px;
+    background-color: #04c3c1; /* Darker background color */
+    border-radius: 7px;
+    padding: 3px;
+}
+
+.status-section h4 {
+    margin-bottom: 5px;
+}
+
+.status-section div {
+    border: 1px solid #04c3c1; /* Darker border color */
+    border-radius: 7px;
+
+}
+
+/* Parameter Container Styles */
+.parameter-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.parameter {
+    flex: 1 0 19%;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #04c3c1; /* Darker border color */
+    background-color: #04c3c1; /* Dark background color */
+    border-radius: 6px;
+}
+
+.parameter-heading {
+    color: #c0ced5; /* Your desired color */
+  }
+  
+.parameter h4 {
+    margin-top: 0;
+    font-size: large;
+}
+
+.parameter p {
+    margin: 5px 0;
+}
+
+/* Progress Bar Styles */
+.progress {
+    height: 5px;
+    background-color: #333; /* Darker background color */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #fd1d1d; 
+    text-align: center;
+    line-height: 20px;
+    color: #282828;
+}
+
+.status-value {
+    color: #282828; /* Lighter text color */
+}
+
+.container-fluid {
+    display: flex; /* Use flexbox layout */
+}
+
+.container {
+    padding: 20px;
+  }
+  
+  .card {
+    border-radius: 15px;
+    border: 1px solid #04c3c1;
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    background-color: #04c3c1;
+    color: #282828;
+    padding: 10px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .form-row {
+    margin-bottom: 10px;
+  }
+  
+  .text-light {
+    color: #282828 !important;
+  }
+
+  /* Custom CSS for half-screen table with scrolling */
+.table-wrapper {
+    max-height: calc(50vh - 100px); /* Adjust the max height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+
+  /* Custom CSS for fixed table header */
+.table-wrapper thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Ensure the header stays above the scrollable content */
+    background: #282828;
+    color: #c0ced5;
+  }
+
+  /* Custom CSS for adding top margin to the button */
+.show-history-btn {
+    margin-top: 15px; /* Adjust the top margin value as needed */
+  }
+
+  canvas {
+    max-height: 40vh;
+  }

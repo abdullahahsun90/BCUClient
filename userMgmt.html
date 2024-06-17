@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCU Control</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="userMgmt.css">
+</head>
+<body>
+    <h1>User Access Control</h1>
+    <div id="adminPanel" style="display: block;" class="form-border">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="adminTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="changePasswordTab" data-bs-toggle="tab" data-bs-target="#changePassword" type="button" role="tab" aria-controls="changePassword" aria-selected="true">Change Password</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="addUserTab" data-bs-toggle="tab" data-bs-target="#addUser" type="button" role="tab" aria-controls="addUser" aria-selected="false">Add User</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="modifyOperatorPasswordTab" data-bs-toggle="tab" data-bs-target="#modifyOperatorPassword" type="button" role="tab" aria-controls="modifyOperatorPassword" aria-selected="false">Modify Operator Password</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="removeOperatorTab" data-bs-toggle="tab" data-bs-target="#removeOperator" type="button" role="tab" aria-controls="removeOperator" aria-selected="false">Remove Operator</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="viewUsersTab" data-bs-toggle="tab" data-bs-target="#viewUsers" type="button" role="tab" aria-controls="viewUsers" aria-selected="false">View Users</button>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content form-container" id="adminTabContent">
+            <div class="tab-pane fade show active" id="changePassword" role="tabpanel" aria-labelledby="changePasswordTab">
+                <h3 class="text-center">Change Password</h3>
+                <div class="form-fields d-flex flex-column align-items-center justify-content-center">
+                    <label for="currentPassword">Current Password:</label>
+                    <input type="password" id="currentPassword" name="currentPassword">
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" name="newPassword">
+                    <label for="confirmNewPassword">Confirm New Password:</label>
+                    <input type="password" id="confirmNewPassword" name="confirmNewPassword">
+                </div>
+                <div class="button-container d-flex justify-content-center">
+                    <button id="changePasswordBtn" class="btn btn-primary">Change Password</button>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="addUser" role="tabpanel" aria-labelledby="addUserTab">
+                <h3 class="text-center">Add User</h3>
+                <div class="form-fields d-flex flex-column align-items-center justify-content-center">
+                    <label for="userEmail">Email Address:</label>
+                    <input type="email" id="userEmail" name="userEmail">
+                    <label for="userPassword">Password:</label>
+                    <input type="password" id="userPassword" name="userPassword">
+                    <!-- New field for User Type -->
+                    <label for="userType">User Type:</label>
+                    <select id="userType" name="userType">
+                        <option value="Operator" selected>Operator</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+                <div class="button-container d-flex justify-content-center">
+                    <button id="addUserBtn" class="btn btn-primary">Add User</button>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="modifyOperatorPassword" role="tabpanel" aria-labelledby="modifyOperatorPasswordTab">
+                <h3 class="text-center">Modify Operator Password</h3>
+                <div class="form-fields d-flex flex-column align-items-center justify-content-center">
+                    <label for="operatorEmail">Operator Email Address:</label>
+                    <input type="email" id="operatorEmail" name="operatorEmail">
+                    <label for="operatorNewPassword">New Password:</label>
+                    <input type="password" id="operatorNewPassword" name="operatorNewPassword">
+                    <label for="confirmOperatorNewPassword">Confirm New Password:</label>
+                    <input type="password" id="confirmOperatorNewPassword" name="confirmOperatorNewPassword">
+                </div>
+                <div class="button-container d-flex justify-content-center">
+                    <button id="modifyOperatorPasswordBtn" class="btn btn-primary">Modify Password</button>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="removeOperator" role="tabpanel" aria-labelledby="removeOperatorTab">
+                <h3 class="text-center">Remove Operator</h3>
+                <div class="form-fields d-flex flex-column align-items-center justify-content-center">
+                    <label for="removeOperatorEmail">Operator Email Address:</label>
+                    <input type="email" id="removeOperatorEmail" name="removeOperatorEmail">
+                </div>
+                <div class="button-container d-flex justify-content-center">
+                    <button id="removeOperatorBtn" class="btn btn-primary">Remove Operator</button>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="viewUsers" role="tabpanel" aria-labelledby="viewUsersTab">
+                <h3 class="text-center">View Users</h3>
+                <div class="table-responsive">
+                    <table class="table tab-pane">
+                        <thead>
+                            <tr>
+                                <th>Email Address</th>
+                                <th>User Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Rows will be added dynamically by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="userMgmt.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

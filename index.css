@@ -1,0 +1,20 @@
+body {
+    height: 100vh;
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+    background: linear-gradient(to right, #0497c3, #04c3c1); /* Adjust gradient colors */
+    justify-content: center;
+}
+.card {
+    color: #282828;
+    font-family: 'Open Sans', sans-serif;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px
+}
+.form-control{
+    color: #282828;
+    font-family: 'Open Sans', sans-serif;
+}

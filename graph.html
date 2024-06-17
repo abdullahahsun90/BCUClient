@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMS - Graphical Analysis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to chart.js file -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="graph.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="fromDateTime" class="form-label">From Date Time:</label>
+                <input type="datetime-local" id="fromDateTime" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label for="toDateTime" class="form-label">To Date Time:</label>
+                <input type="datetime-local" id="toDateTime" class="form-control">
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button id="showHistoryBtn" class="btn btn-primary">Show History</button>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button id="resetZoomBtn" class="btn btn-secondary">Reset Zoom</button>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+     <!-- Include external JavaScript file -->
+     <script src="graph.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMS-Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="card">
+        <h5 class="card-title text-center mb-4">Battery Management System - Login</h5>
+        <form>
+            <div class="mb-3">
+                <label for="serverIP" class="form-label">Server IP Address</label>
+                <input type="IP" class="form-control" id="serverIP" placeholder="localhost" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Sign in</button>
+        </form>
+    </div>
+    
+     <!-- Include external JavaScript file -->
+     <script type="module" src="main.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #282828; /* Dark background color */
+    color: #282828; /* Light text color */
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #282828;
+    border-radius: 8px;
+    padding: 20px;
+    background: #04c3c1; /* Adjust gradient colors */
+}
+
+#formFields {
+    overflow-y: auto; /* Enable vertical scrolling */
+    flex-grow: 1; /* Allow the form fields to take remaining vertical space */
+    max-height: 75vh; /* Set max height for scrolling */
+    width: 100%;
+    margin-right: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #282828; /* Add border above buttons */
+    padding-top: 20px;
+    width: 100%;
+}
+
+.btn {
+    margin: 0 10px; /* Add space between buttons */
+}
+
+button[type="submit"] {
+    width: auto; /* Allow buttons to adjust width based on content */
+    min-width: 150px; /* Set minimum width for buttons */
+    height: 40px; /* Set height for buttons */
+    transition: background-color 0.3s ease;
+}
+
+label {
+    white-space: nowrap; 
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%; /* Fill the width of their container */
+    height: 35px; /* Set fixed height for input fields */
+    padding: 3px;
+    border: 1px solid #282828;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #c0ced5; /* Change background color on hover */
+}
+
+.form-border {
+    border: 1px solid #282828;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
