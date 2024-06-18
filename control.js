@@ -1,3 +1,4 @@
+const ServerIP = JSON.parse(localStorage.getItem('sharedVariable'));
 
    // Array of parameter names
     var configurationParametersInfo = [

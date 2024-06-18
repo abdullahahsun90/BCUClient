@@ -1,5 +1,6 @@
 import LiveParams from './LiveParams.js';
 
+const ServerIP = JSON.parse(localStorage.getItem('sharedVariable'));
 const liveParams = new LiveParams();
 
 var parameters = [];
@@ -672,7 +673,7 @@ $(document).ready(function() {
   
     function fetchDataAndUpdateTable(tableId, fromDateTime, toDateTime) {
         // Perform your HTTP request here using fetch API
-        fetch(`http://localhost:5262/RackHistory?fromDateTime=${encodeURIComponent(fromDateTime.toISOString())}&toDateTime=${encodeURIComponent(toDateTime.toISOString())}&tableID=${encodeURIComponent(tableId)}`, {
+        fetch(`http://${ServerIP}:5262/RackHistory?fromDateTime=${encodeURIComponent(fromDateTime.toISOString())}&toDateTime=${encodeURIComponent(toDateTime.toISOString())}&tableID=${encodeURIComponent(tableId)}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -720,7 +721,7 @@ function getUnderVoltageFaultHistory(tableId, fromTime, toTime)
 {
     
         // Perform your HTTP request here using fetch API
-     fetch(`http://localhost:5262/AFE_UnderVoltageHistory?fromDateTime=${encodeURIComponent(fromTime.toISOString())}&toDateTime=${encodeURIComponent(toTime.toISOString())}&tableID=${encodeURIComponent(tableId)}`, {
+     fetch(`http://${ServerIP}:5262/AFE_UnderVoltageHistory?fromDateTime=${encodeURIComponent(fromTime.toISOString())}&toDateTime=${encodeURIComponent(toTime.toISOString())}&tableID=${encodeURIComponent(tableId)}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -760,7 +761,7 @@ function getUnderVoltageFaultHistory(tableId, fromTime, toTime)
 function getOverVoltageFaultHistory(tableId, fromTime, toTime)
 {    
         // Perform your HTTP request here using fetch API
-     fetch(`http://localhost:5262/AFE_OverVoltageHistory?fromDateTime=${encodeURIComponent(fromTime.toISOString())}&toDateTime=${encodeURIComponent(toTime.toISOString())}&tableID=${encodeURIComponent(tableId)}`, {
+     fetch(`http://${ServerIP}:5262/AFE_OverVoltageHistory?fromDateTime=${encodeURIComponent(fromTime.toISOString())}&toDateTime=${encodeURIComponent(toTime.toISOString())}&tableID=${encodeURIComponent(tableId)}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -818,8 +819,8 @@ function updateChartValues(newValues, BMU_Index) {
     myChart[BMU_Index].update();
   }
 
-function fetchByteArrayAndUpdateParams() {
-    fetch('http://localhost:5262/LiveParams', { method: 'GET' })
+function fetchByteArrayAndUpdateParams(serverIP) {
+    fetch('http://' + serverIP + ':5262/LiveParams', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -853,8 +854,8 @@ function fetchByteArrayAndUpdateParams() {
         });
 }
 
-function fetchByteArrayAndUpdateAFEChValues_Voltage() {
-    fetch('http://localhost:5262/AFE_ChValuesVoltage', { method: 'GET' })
+function fetchByteArrayAndUpdateAFEChValues_Voltage(serverIP) {
+    fetch('http://' + serverIP + ':5262/AFE_ChValuesVoltage', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -874,8 +875,8 @@ function fetchByteArrayAndUpdateAFEChValues_Voltage() {
         });
 }
 
-function fetchByteArrayAndUpdateAnalogDieTemperature() {
-    fetch('http://localhost:5262/AnalogDieTemperature', { method: 'GET' })
+function fetchByteArrayAndUpdateAnalogDieTemperature(serverIP) {
+    fetch('http://' + serverIP + ':5262/AnalogDieTemperature', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -895,8 +896,8 @@ function fetchByteArrayAndUpdateAnalogDieTemperature() {
         });
 }
 
-function fetchByteArrayAndUpdateDigitalDieTemperature() {
-    fetch('http://localhost:5262/DigitalDieTemperature', { method: 'GET' })
+function fetchByteArrayAndUpdateDigitalDieTemperature(serverIP) {
+    fetch('http://' + serverIP + ':5262/DigitalDieTemperature', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -916,8 +917,8 @@ function fetchByteArrayAndUpdateDigitalDieTemperature() {
         });
 }
 
-function fetchByteArrayAndUpdateAFE_UnderVoltageFaultStatus() {
-    fetch('http://localhost:5262/AFE_UnderVoltageFaultStatus', { method: 'GET' })
+function fetchByteArrayAndUpdateAFE_UnderVoltageFaultStatus(serverIP) {
+    fetch('http://' + serverIP + ':5262/AFE_UnderVoltageFaultStatus', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -954,8 +955,8 @@ function fetchByteArrayAndUpdateAFE_UnderVoltageFaultStatus() {
         });
 }
 
-function fetchByteArrayAndUpdateAFE_OverVoltageFaultStatus() {
-    fetch('http://localhost:5262/AFE_OverVoltageFaultStatus', { method: 'GET' })
+function fetchByteArrayAndUpdateAFE_OverVoltageFaultStatus(serverIP) {
+    fetch('http://' + serverIP + ':5262/AFE_OverVoltageFaultStatus', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -992,8 +993,8 @@ function fetchByteArrayAndUpdateAFE_OverVoltageFaultStatus() {
         });
 }
 
-function fetchByteArrayAndUpdateRackAlarmStatus() {
-    fetch('http://localhost:5262/RackAlarmStatus', { method: 'GET' })
+function fetchByteArrayAndUpdateRackAlarmStatus(serverIP) {
+    fetch('http://' + serverIP + ':5262/RackAlarmStatus', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -1026,8 +1027,8 @@ function fetchByteArrayAndUpdateRackAlarmStatus() {
         });
 }
 
-function fetchByteArrayAndUpdateRackWarningStatus() {
-    fetch('http://localhost:5262/RackWarningStatus', { method: 'GET' })
+function fetchByteArrayAndUpdateRackWarningStatus(serverIP) {
+    fetch('http://' + serverIP + ':5262/RackWarningStatus', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -1060,8 +1061,8 @@ function fetchByteArrayAndUpdateRackWarningStatus() {
         });
 }
 
-function fetchByteArrayAndUpdateRackFaultStatus() {
-    fetch('http://localhost:5262/RackFaultStatus', { method: 'GET' })
+function fetchByteArrayAndUpdateRackFaultStatus(serverIP) {
+    fetch('http://' + serverIP + ':5262/RackFaultStatus', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -1094,8 +1095,8 @@ function fetchByteArrayAndUpdateRackFaultStatus() {
         });
 }
 
-function fetchByteArrayAndUpdateExtremeValues() {
-    fetch('http://localhost:5262/BMU_ExtremeValues', { method: 'GET' })
+function fetchByteArrayAndUpdateExtremeValues(serverIP) {
+    fetch('http://' + serverIP + ':5262/BMU_ExtremeValues', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -1120,8 +1121,8 @@ function fetchByteArrayAndUpdateExtremeValues() {
         });
 }
 
-function fetchByteArrayAndUpdateBalancingStatus() {
-    fetch('http://localhost:5262/AFE_BalancingStatus', { method: 'GET' })
+function fetchByteArrayAndUpdateBalancingStatus(serverIP) {
+    fetch('http://' + serverIP + ':5262/AFE_BalancingStatus', { method: 'GET' })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -1159,35 +1160,14 @@ function fetchByteArrayAndUpdateBalancingStatus() {
         });
 }
 
-// Call fetchByteArrayAndUpdateParams every 4 seconds
-setInterval(fetchByteArrayAndUpdateParams, 4000);
-
-// Call fetchByteArrayAndUpdateParams every 5 seconds
-setInterval(fetchByteArrayAndUpdateAFEChValues_Voltage, 5000);
-
-// Call fetchByteArrayAndUpdateParams every 6.5 seconds
-setInterval(fetchByteArrayAndUpdateAnalogDieTemperature, 6500);
-
-// Call fetchByteArrayAndUpdateParams every 7 seconds
-setInterval(fetchByteArrayAndUpdateDigitalDieTemperature, 7000);
-
-// Call fetchByteArrayAndUpdateParams every 7.5 seconds
-setInterval(fetchByteArrayAndUpdateAFE_UnderVoltageFaultStatus, 7500);
-
-// Call fetchByteArrayAndUpdateParams every 8 seconds
-setInterval(fetchByteArrayAndUpdateAFE_OverVoltageFaultStatus, 8000);
-
-// Call fetchByteArrayAndUpdateParams every 3 seconds
-setInterval(fetchByteArrayAndUpdateRackAlarmStatus, 3000);
-
-// Call fetchByteArrayAndUpdateParams every 3.3 seconds
-setInterval(fetchByteArrayAndUpdateRackWarningStatus, 3300);
-
-// Call fetchByteArrayAndUpdateParams every 3.7 seconds
-setInterval(fetchByteArrayAndUpdateRackFaultStatus, 3700);
-
-// Call fetchByteArrayAndUpdateParams every 5.5 seconds
-setInterval(fetchByteArrayAndUpdateExtremeValues, 5500);
-
-// Call fetchByteArrayAndUpdateParams every 8.5 seconds
-setInterval(fetchByteArrayAndUpdateBalancingStatus, 8500);
+setInterval(() => fetchByteArrayAndUpdateBalancingStatus(ServerIP), 8500);
+setInterval(() => fetchByteArrayAndUpdateParams(ServerIP), 4000);
+setInterval(() => fetchByteArrayAndUpdateAFEChValues_Voltage(ServerIP), 5000);
+setInterval(() => fetchByteArrayAndUpdateAnalogDieTemperature(ServerIP), 6500);
+setInterval(() => fetchByteArrayAndUpdateDigitalDieTemperature(ServerIP), 7000);
+setInterval(() => fetchByteArrayAndUpdateAFE_UnderVoltageFaultStatus(ServerIP), 7500);
+setInterval(() => fetchByteArrayAndUpdateAFE_OverVoltageFaultStatus(ServerIP), 8000);
+setInterval(() => fetchByteArrayAndUpdateRackAlarmStatus(ServerIP), 3000);
+setInterval(() => fetchByteArrayAndUpdateRackWarningStatus(ServerIP), 3300);
+setInterval(() => fetchByteArrayAndUpdateRackFaultStatus(ServerIP), 3700);
+setInterval(() => fetchByteArrayAndUpdateExtremeValues(ServerIP), 5500);

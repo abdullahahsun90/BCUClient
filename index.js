@@ -1,3 +1,4 @@
+var serverIP;
 document.addEventListener("DOMContentLoaded", function() {
     // Get form and button elements
     var form = document.querySelector('form');
@@ -9,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // Get input values
         var email = document.getElementById('inputEmail').value;
         var password = document.getElementById('inputPassword').value;
+        serverIP = document.getElementById('serverIP').value;
+
+        const myVariable = serverIP;
+        localStorage.setItem('sharedVariable', JSON.stringify(myVariable));
 
         // Check if any field is empty
         if (!email || !password) {
@@ -20,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function loginUser(email, password) {
-    fetch(`http://localhost:5262/Login?email=${encodeURIComponent(email.toString())}&password=${encodeURIComponent(password.toString())}`, {
+    fetch(`http://${serverIP}:5262/Login?email=${encodeURIComponent(email.toString())}&password=${encodeURIComponent(password.toString())}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
