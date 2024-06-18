@@ -1160,14 +1160,14 @@ function fetchByteArrayAndUpdateBalancingStatus(serverIP) {
         });
 }
 
-setInterval(() => fetchByteArrayAndUpdateBalancingStatus(ServerIP), 8500);
-setInterval(() => fetchByteArrayAndUpdateParams(ServerIP), 4000);
-setInterval(() => fetchByteArrayAndUpdateAFEChValues_Voltage(ServerIP), 5000);
-setInterval(() => fetchByteArrayAndUpdateAnalogDieTemperature(ServerIP), 6500);
-setInterval(() => fetchByteArrayAndUpdateDigitalDieTemperature(ServerIP), 7000);
-setInterval(() => fetchByteArrayAndUpdateAFE_UnderVoltageFaultStatus(ServerIP), 7500);
-setInterval(() => fetchByteArrayAndUpdateAFE_OverVoltageFaultStatus(ServerIP), 8000);
-setInterval(() => fetchByteArrayAndUpdateRackAlarmStatus(ServerIP), 3000);
-setInterval(() => fetchByteArrayAndUpdateRackWarningStatus(ServerIP), 3300);
-setInterval(() => fetchByteArrayAndUpdateRackFaultStatus(ServerIP), 3700);
-setInterval(() => fetchByteArrayAndUpdateExtremeValues(ServerIP), 5500);
+setInterval(() => fetchByteArrayAndUpdateBalancingStatus(ServerIP), 200);
+setInterval(() => fetchByteArrayAndUpdateParams(ServerIP), 300);
+setInterval(() => fetchByteArrayAndUpdateAFEChValues_Voltage(ServerIP), 400);
+setInterval(() => fetchByteArrayAndUpdateAnalogDieTemperature(ServerIP), 500);
+setInterval(() => fetchByteArrayAndUpdateDigitalDieTemperature(ServerIP), 600);
+setInterval(() => fetchByteArrayAndUpdateAFE_UnderVoltageFaultStatus(ServerIP), 700);
+setInterval(() => fetchByteArrayAndUpdateAFE_OverVoltageFaultStatus(ServerIP), 800);
+setInterval(() => fetchByteArrayAndUpdateRackAlarmStatus(ServerIP), 900);
+setInterval(() => fetchByteArrayAndUpdateRackWarningStatus(ServerIP), 1000);
+setInterval(() => fetchByteArrayAndUpdateRackFaultStatus(ServerIP), 1100);
+setInterval(() => fetchByteArrayAndUpdateExtremeValues(ServerIP), 1200);
